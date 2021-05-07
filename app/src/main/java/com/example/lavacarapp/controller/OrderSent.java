@@ -8,17 +8,12 @@ import android.view.View;
 
 import com.example.lavacarapp.R;
 
-public class CameraPage extends AppCompatActivity {
+public class OrderSent extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera_page);
-    }
-
-    public void cameraButton(View view){
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_order_sent);
     }
 
     public void orderPageButton(View view){

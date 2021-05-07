@@ -14,9 +14,15 @@
     <string name="telefone_edit_Text">telefone</string>
     <string name="nome_edit_text">nome</string>
     <string name="splash_description">Agende a limpeza do seu carro sem sair de casa!</string>
-    <string name="logged_page_desc">Adicione fotos do seu carro abaixo.</string>
+    <string name="logged_page_desc">Adicione fotos do seu carro.</string>
     <string name="logged_page_desc2">As fotos serão usadas para conferir o estado do carro antes da limpeza.</string>
     <string name="open_cam_title">Abrir câmera</string>
     <string name="camera_logo">Camera logo</string>
     <string name="order_title_page">Faça seu pedido!</string>
+    <string name="galery_button">Galeria</string>
+    <string name="progress_level">0</string>
+    <string name="clean_level_description">Nível da limpeza</string>
+    <string name="enviar_pedido">Enviar pedido</string>
+    <string name="sucess_order_text">Pedido enviado com sucesso!</string>
+    <string name="back_order_Sent">Voltar</string>
 </resources>
