@@ -25,4 +25,5 @@
     <string name="enviar_pedido">Enviar pedido</string>
     <string name="sucess_order_text">Pedido enviado com sucesso!</string>
     <string name="back_order_Sent">Voltar</string>
+    <string name="camera_logo_for_picture">Camera logo for picture</string>
 </resources>
