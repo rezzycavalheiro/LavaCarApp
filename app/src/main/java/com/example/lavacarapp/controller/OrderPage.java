@@ -48,6 +48,11 @@ public class OrderPage extends AppCompatActivity {
         });
     }
 
+    public void openCameraButton(View view){
+        Intent intent = new Intent(this, CameraPage.class);
+        startActivity(intent);
+    }
+
     public void openGalleryButton(View view){
         Intent intent = new Intent(this, CameraPage.class);
         startActivity(intent);

@@ -26,4 +26,6 @@
     <string name="sucess_order_text">Pedido enviado com sucesso!</string>
     <string name="back_order_Sent">Voltar</string>
     <string name="camera_logo_for_picture">Camera logo for picture</string>
+    <string name="adicionar_foto_button">Adicionar foto</string>
+    <string name="select_photos_title">Selecione até 3 fotos da galeria</string>
 </resources>

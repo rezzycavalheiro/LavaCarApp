@@ -1,6 +1,7 @@
 package com.example.lavacarapp.controller;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
@@ -23,10 +24,12 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class CameraPage extends AppCompatActivity {
 
     static final int CAMERA_PERMISSION_CODE = 2001;
+    static final int CAMERA_INTENT_CODE = 3001;
     ImageView imageViewCamera;
     String picturePath;
 
@@ -82,7 +85,7 @@ public class CameraPage extends AppCompatActivity {
         intent.putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, true);
         if(intent.resolveActivity(getPackageManager()) != null){
             // new Date() retorna a hora atual
-            String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+            String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(new Date());
             String picName = "pic_" +  timeStamp;
             File dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             File pictureFile = null;
@@ -99,7 +102,24 @@ public class CameraPage extends AppCompatActivity {
                         pictureFile
                 );
                 intent.putExtra(MediaStore.EXTRA_OUTPUT,photouri);
-                startActivity(intent);
+                startActivityForResult(intent, CAMERA_INTENT_CODE);
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable  Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == CAMERA_INTENT_CODE){
+            if(resultCode == RESULT_OK){
+                File file = new File(picturePath);
+                if(file.exists()){
+                    imageViewCamera.setImageURI(Uri.fromFile(file));
+                }
+            }
+            else {
+                Toast.makeText(CameraPage.this, "Problema ao pegar a imagem da câmera.",
+                        Toast.LENGTH_LONG).show();
             }
         }
     }
