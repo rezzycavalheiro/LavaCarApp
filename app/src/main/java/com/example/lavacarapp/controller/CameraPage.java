@@ -9,6 +9,7 @@ import androidx.core.content.FileProvider;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,10 +22,14 @@ import android.widget.Toast;
 import com.example.lavacarapp.R;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import static android.os.Environment.getExternalStoragePublicDirectory;
 
 public class CameraPage extends AppCompatActivity {
 
@@ -103,8 +108,16 @@ public class CameraPage extends AppCompatActivity {
                 );
                 intent.putExtra(MediaStore.EXTRA_OUTPUT,photouri);
                 startActivityForResult(intent, CAMERA_INTENT_CODE);
+//                galleryAddPic();
             }
         }
+    }
+    
+    public void galleryAddPic(String file) {
+        File f = new File(file);
+        Uri contentUri = Uri.fromFile(f);
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,contentUri);
+        sendBroadcast(mediaScanIntent);
     }
 
     @Override
@@ -115,7 +128,9 @@ public class CameraPage extends AppCompatActivity {
                 File file = new File(picturePath);
                 if(file.exists()){
                     imageViewCamera.setImageURI(Uri.fromFile(file));
+                    galleryAddPic(picturePath);
                 }
+                galleryAddPic(picturePath);
             }
             else {
                 Toast.makeText(CameraPage.this, "Problema ao pegar a imagem da câmera.",
