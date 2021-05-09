@@ -20,7 +20,7 @@
     <string name="camera_logo">Camera logo</string>
     <string name="order_title_page">Faça seu pedido!</string>
     <string name="galery_button">Galeria</string>
-    <string name="progress_level">0</string>
+    <string name="progress_level">1</string>
     <string name="clean_level_description">Nível da limpeza</string>
     <string name="enviar_pedido">Enviar pedido</string>
     <string name="sucess_order_text">Pedido enviado com sucesso!</string>
@@ -28,4 +28,12 @@
     <string name="camera_logo_for_picture">Camera logo for picture</string>
     <string name="adicionar_foto_button">Adicionar foto</string>
     <string name="select_photos_title">Selecione até 3 fotos da galeria</string>
+    <string name="abrir_galeria_title">Abrir galeria</string>
+    <string name="gallery_description_pic">gallery_description</string>
+    <string name="info_title">Informações</string>
+    <string name="info1">∘˚˳° Adicione 3 fotos do seu veículo para sabermos como ele estava antes da limpeza. Isso garante que se houver qualquer dano ao veículo durante o procedimento, possamos resolver a situação rapidamente.</string>
+    <string name="info2">Para fazer seu pedido, se atente aos seguintes requisitos:</string>
+    <string name="info3">∘˚˳° Selecione o nível de limpeza. 1: limpeza apenas da parte externa do veículo. 2: limpeza externa e interna, para sujeira acumulada do dia a dia. 3: limpeza pesada, para situações mais específicas como líquidos derramados nos bancos e manchas na parte externa.</string>
+    <string name="info4">∘˚˳° Para finalizar, clique em enviar pedido e, quando estiver pronto, ligaremos para o número cadastrado no perfil!</string>
+    <string name="info_button">Info button</string>
 </resources>

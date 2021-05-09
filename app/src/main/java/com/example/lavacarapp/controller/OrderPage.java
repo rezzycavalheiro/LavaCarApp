@@ -27,11 +27,15 @@ public class OrderPage extends AppCompatActivity {
         cleanLevelSeekBar = findViewById(R.id.seekBar_clean_level);
 
         cleanLevelProgress.setMax(3);
-        cleanLevelSeekBar.setMax(3);
+        cleanLevelSeekBar.setMax(2);
 
+        // SEEKBAR COM NO MÁXIMO 2 PONTOS DE PROGRESSO E
+        // PROGRESSBAR COM NO MÁXIMO VALOR 3
         cleanLevelSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // SEEKBAR E PROGRESSBAR COMEÇANDO EM 1 (PRIMEIRO NÍVEL)
+                progress = progress + 1;
                 cleanLevelProgress.setProgress(progress);
                 cleanLevelText.setText("" + progress);
             }
@@ -48,18 +52,21 @@ public class OrderPage extends AppCompatActivity {
         });
     }
 
+    // BOTÃO PARA ADICIONAR FOTOS
     public void openCameraButton(View view){
         Intent intent = new Intent(this, CameraPage.class);
         startActivity(intent);
     }
 
-    public void openGalleryButton(View view){
-        Intent intent = new Intent(this, CameraPage.class);
+    // BOTÃO PARA ENVIAR PEDIDO
+    public void sendOrderButton(View view){
+        Intent intent = new Intent(this, OrderSent.class);
         startActivity(intent);
     }
 
-    public void sendOrderButton(View view){
-        Intent intent = new Intent(this, OrderSent.class);
+    // POP UP DE INFORMAÇÕES
+    public void popUpInforButton(View view){
+        Intent intent = new Intent(this, PopUpInfo.class);
         startActivity(intent);
     }
 }

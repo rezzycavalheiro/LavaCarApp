@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LavaCarApp">
-        <activity android:name=".controller.OrderSent"></activity>
+        <activity android:name=".controller.PopUpInfo"
+            android:theme="@style/PopInfo">
+        </activity>
+        <activity android:name=".controller.OrderSent" />
         <activity android:name=".controller.OrderPage" />
         <activity android:name=".controller.CameraPage" />
         <activity android:name=".controller.Register" />
@@ -25,16 +28,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
-            android:authorities="com.example.lavacarapp.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.lavacarapp.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider">
-            </meta-data>
+                android:resource="@xml/fileprovider" />
         </provider>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
