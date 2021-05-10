@@ -47,7 +47,7 @@ public class DaoUser {
         return 0;
     }
 
-    //RETRIEVE - TRAZER OS DADOS DO BD
+    //RETRIEVE - TRAZER OS DADOS DO BD (LISTA COM TODOS OS USUÁRIOS)
     public ArrayList<UserInfo> retrieveUsersFromDB() {
         SQLiteDatabase db = conexaoSQLite.getReadableDatabase();
         Cursor cursor = db.query(DB_TABLE, null, null,
@@ -77,64 +77,7 @@ public class DaoUser {
         return users;
     }
 
-    // UPDATE - ALTERAR DADOS NO BD
-    public int updateUserInDB(UserInfo user) {
-        SQLiteDatabase db = conexaoSQLite.getReadableDatabase();
-        int count = 0;
-
-        try {
-            ContentValues values = new ContentValues();
-            values.put(COL_NAME, user.getNome());
-            values.put(COL_PHONE, user.getTelefone());
-            values.put(COL_PASSWORD, user.getPassword());
-            String id = String.valueOf(user.getId());
-            count = db.update(DB_TABLE, values, COL_ID + "=?", new String[]{id});
-            db.close();
-            return count;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            db.close();
-        }
-        return count;
-    }
-
-    //DELETE - DELETAR DADOS DO BD
-    public void deleteUserInDB(UserInfo user) {
-        SQLiteDatabase db = conexaoSQLite.getWritableDatabase();
-        try {
-            db.delete(DB_TABLE, COL_ID + "id =?", new String[]{String.valueOf(user.getId())});
-            db.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            db.close();
-        }
-    }
-
-    // MÉTODOS PARA LOGIN
-
-    // CHECAR SE EXISTE USUÁRIO + EMAIL PARA LOGIN
-    public boolean checkUser(String email, String password) {
-        String[] columns = {COL_ID};
-        SQLiteDatabase db = conexaoSQLite.getReadableDatabase();
-        try {
-            String selection = COL_EMAIL + " = ?" + " AND " + COL_PASSWORD + " = ?";
-            String[] selectionArgs = {email, password};
-            Cursor cursor = db.query(DB_TABLE, columns, selection,
-                    selectionArgs, null, null, null);
-            int cursorCount = cursor.getCount();
-            cursor.close();
-            db.close();
-            if (cursorCount > 0) {
-                return true;
-            }
-            return false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            db.close();
-        }
-        return false;
-    }
-
+    // RETRIEVE - O USUÁRIO LOGADO DO BD
     public UserInfo getUser(String email) {
         String[] columns = {COL_NAME, COL_EMAIL, COL_PHONE, COL_PASSWORD};
         SQLiteDatabase db = conexaoSQLite.getReadableDatabase();
@@ -162,5 +105,74 @@ public class DaoUser {
             db.close();
         }
         return c;
+    }
+
+    // UPDATE - ALTERAR DADOS NO BD
+    public int updateUserInDB(String email, String name, String phone) {
+        SQLiteDatabase db = conexaoSQLite.getReadableDatabase();
+        int count = 0;
+
+        try {
+            ContentValues values = new ContentValues();
+            values.put(COL_NAME, name);
+            values.put(COL_PHONE, phone);
+            count = db.update(DB_TABLE, values, COL_EMAIL + "= ?", new String[]{email});
+            db.close();
+            return count;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            db.close();
+        }
+        return count;
+    }
+
+
+    //DELETE - DELETAR DADOS DO BD
+//    public void deleteUserInDB(UserInfo user) {
+//        SQLiteDatabase db = conexaoSQLite.getWritableDatabase();
+//        try {
+//            db.delete(DB_TABLE, COL_ID + "id =?", new String[]{String.valueOf(user.getId())});
+//            db.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            db.close();
+//        }
+//    }
+
+    public void deleteUserInDB(String email) {
+        SQLiteDatabase db = conexaoSQLite.getWritableDatabase();
+        try {
+            db.delete(DB_TABLE, COL_EMAIL + " = ?", new String[]{email});
+            db.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            db.close();
+        }
+    }
+
+
+    // MÉTODOS PARA LOGIN
+
+    // CHECAR SE EXISTE USUÁRIO + EMAIL PARA LOGIN
+    public boolean checkUser(String email, String password) {
+        String[] columns = {COL_ID};
+        SQLiteDatabase db = conexaoSQLite.getReadableDatabase();
+        try {
+            String selection = COL_EMAIL + " = ?" + " AND " + COL_PASSWORD + " = ?";
+            String[] selectionArgs = {email, password};
+            Cursor cursor = db.query(DB_TABLE, columns, selection,
+                    selectionArgs, null, null, null);
+            int cursorCount = cursor.getCount();
+            cursor.close();
+            db.close();
+            if (cursorCount > 0) {
+                return true;
+            }
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            db.close();
+        }
+        return false;
     }
 }

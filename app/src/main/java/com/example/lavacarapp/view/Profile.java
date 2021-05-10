@@ -3,6 +3,8 @@ package com.example.lavacarapp.view;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -31,8 +33,6 @@ public class Profile extends AppCompatActivity {
         nomeUser = findViewById(R.id.nome_user);
         phoneUser = findViewById(R.id.telefone_user);
         emailUser = findViewById(R.id.editTextTextEmailAddress3);
-        password = findViewById(R.id.editTextTextPassword3);
-        newPassword = findViewById(R.id.editTextTextPassword4);
         updateButton = findViewById(R.id.update_button);
         deleteButton = findViewById(R.id.delete_button);
 
@@ -57,35 +57,40 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String nomeCheck = emailUser.getText().toString().trim();
-                String phoneCheck = phoneUser.getText().toString().trim();
-                String passwordCheck = password.getText().toString().trim();
-                String newPassword = newPassword.getBytes().toString();
+                String nameToUpdate = nomeUser.getText().toString().trim();
+                String phoneToUpdate = phoneUser.getText().toString().trim();
 
-                if(nomeCheck == loggedUser.getNome() && phoneCheck == loggedUser.getTelefone()){
+                if(nameToUpdate.equals(loggedUser.getNome()) && phoneToUpdate.equals(loggedUser.getTelefone())){
                     AlertDialog.Builder builder = new AlertDialog.Builder(Profile.this);
                     builder.setMessage("Dados iguais aos anteriores. Nada a ser atualizado.");
                     builder.create().show();
                 }
-                else if(passwordCheck != loggedUser.getPassword()){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Profile.this);
-                    builder.setMessage("Senha atual incorreta.");
-                    builder.create().show();
-                }
-                else if(passwordCheck == newPassword){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Profile.this);
-                    builder.setMessage("As duas senhas são iguais.");
-                    builder.create().show();
-                }
                 else {
-                    userCtrl.alterarUser(user);
+                    userCtrl.alterarUser(loggedUser.getEmail(), nameToUpdate, phoneToUpdate);
+                    Toast.makeText(getApplicationContext(), "Dados atualizados com sucesso!", Toast.LENGTH_LONG).show();
                 }
-                
-                Toast.makeText(getApplicationContext(), "Dados atualizados com sucesso!", Toast.LENGTH_LONG).show();
             }
         });
 
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(Profile.this);
+                builder.setMessage("Tem certeza de que deseja excluir o perfil?");
 
+                builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        userCtrl.deletarUser(loggedUser.getEmail());
+                        Intent mainActivity = new Intent(view.getContext(), MainActivity.class);
+                        startActivity(mainActivity);
+                    }
+                });
+                builder.setNegativeButton("Cancelar", null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
     }
 }

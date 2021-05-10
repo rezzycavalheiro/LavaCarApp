@@ -1,7 +1,5 @@
 package com.example.lavacarapp.controller;
 
-import android.database.Cursor;
-
 import com.example.lavacarapp.dao.DaoUser;
 import com.example.lavacarapp.model.UserDatabase;
 import com.example.lavacarapp.model.UserInfo;
@@ -24,16 +22,15 @@ public class UserCtrl {
         return daoUser.checkUser(user.getEmail(), user.getPassword());
     }
 
-    public int alterarUser(UserInfo user){
-        return daoUser.updateUserInDB(user);
+    public void alterarUser(String email, String name, String phone){
+        daoUser.updateUserInDB(email, name, phone);
     }
 
     public UserInfo getUserInfo(String email){
         return daoUser.getUser(email);
     }
 
-    public ArrayList<UserInfo> getUsers(){
-        return daoUser.retrieveUsersFromDB();
+    public void deletarUser(String email){
+        daoUser.deleteUserInDB(email);
     }
-
 }

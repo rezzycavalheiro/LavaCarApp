@@ -16,9 +16,7 @@
         app:backgroundTint="#30A1C6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/update_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/telefone_user"
@@ -38,54 +36,26 @@
         android:id="@+id/nome_user"
         android:layout_width="338dp"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:fontFamily="@font/carter_one"
         android:hint="@string/nome_edit_text"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:importantForAutofill="no" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword4"
-        android:layout_width="338dp"
-        android:layout_height="52dp"
-        android:ems="10"
-        android:fontFamily="@font/carter_one"
-        android:hint="senha nova"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword3"
-        android:layout_width="338dp"
-        android:layout_height="56dp"
-        android:ems="10"
-        android:fontFamily="@font/carter_one"
-        android:hint="senha atual"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/editTextTextEmailAddress3"
-        android:layout_width="337dp"
-        android:layout_height="36dp"
+        android:layout_width="336dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="@font/carter_one"
         android:hint="@string/e_mail_edit_text"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -103,9 +73,7 @@
         android:text="@string/update_profile_button"
         app:backgroundTint="#30A1C6"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4"
-        app:layout_constraintVertical_bias="0.952" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
