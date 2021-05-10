@@ -13,15 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LavaCarApp">
-        <activity android:name=".controller.PopUpInfo"
-            android:theme="@style/PopInfo">
-        </activity>
-        <activity android:name=".controller.OrderSent" />
-        <activity android:name=".controller.OrderPage" />
-        <activity android:name=".controller.CameraPage" />
-        <activity android:name=".controller.Register" />
-        <activity android:name=".controller.Login" />
-        <activity android:name=".controller.MainActivity">
+        <activity android:name=".view.Profile"></activity>
+        <activity android:name=".view.StartMenu" />
+        <activity
+            android:name=".view.PopUpInfo"
+            android:theme="@style/PopInfo" />
+        <activity android:name=".view.OrderSent" />
+        <activity android:name=".view.OrderPage" />
+        <activity android:name=".view.CameraPage" />
+        <activity android:name=".view.Register" />
+        <activity android:name=".view.Login" />
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

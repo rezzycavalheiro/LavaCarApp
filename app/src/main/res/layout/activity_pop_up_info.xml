@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/pop_up_info"
-    tools:context=".controller.PopUpInfo">
+    tools:context=".view.PopUpInfo">
 
     <TextView
         android:id="@+id/info_title_textView"

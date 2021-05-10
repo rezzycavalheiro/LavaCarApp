@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.OrderPage">
+    tools:context=".view.OrderPage">
+
+    <ImageButton
+        android:id="@+id/start_menu_back_Button2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@mipmap/arrow_back_foreground"
+        android:contentDescription="@string/start_manu_back_description"
+        android:onClick="menuPageButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/order_title2"
@@ -76,7 +88,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_clean_level"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:targetApi="o" />
 
     <SeekBar
         android:id="@+id/seekBar_clean_level"
@@ -111,14 +124,13 @@
         android:id="@+id/send_order_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="48dp"
         android:fontFamily="@font/carter_one"
         android:onClick="sendOrderButton"
         android:text="@string/enviar_pedido"
         app:backgroundTint="#30A1C6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -135,16 +147,15 @@
 
     <ImageButton
         android:id="@+id/info_button"
-        android:layout_width="47dp"
+        android:layout_width="44dp"
         android:layout_height="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:drawable/ic_menu_info_details"
+        android:contentDescription="@string/info_button_description"
         android:onClick="popUpInforButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

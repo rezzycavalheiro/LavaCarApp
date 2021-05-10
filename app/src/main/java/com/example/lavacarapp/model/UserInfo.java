@@ -2,10 +2,14 @@ package com.example.lavacarapp.model;
 
 public class UserInfo {
     private long id;
-    private  String nome;
+    private String nome;
     private String telefone;
     private String email;
     private String password;
+
+    public UserInfo() {
+
+    }
 
     public UserInfo(long id, String nome, String telefone, String email, String password) {
         this.id = id;
@@ -15,9 +19,10 @@ public class UserInfo {
         this.password = password;
     }
 
-    public UserInfo(String nome, String telefone, String password) {
+    public UserInfo(String nome, String telefone, String email, String password) {
         this.nome = nome;
         this.telefone = telefone;
+        this.email = email;
         this.password = password;
     }
 
@@ -59,6 +64,17 @@ public class UserInfo {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
 

@@ -4,35 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.OrderSent">
+    tools:context=".view.StartMenu">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="345dp"
-        android:layout_height="145dp"
-        android:layout_marginTop="184dp"
+    <Button
+        android:id="@+id/order_start_manu_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="244dp"
         android:fontFamily="@font/carter_one"
-        android:gravity="center"
-        android:text="@string/sucess_order_text"
-        android:textColor="#020202"
-        android:textSize="36sp"
+        android:onClick="orderButton"
+        android:text="@string/order_menu_start_button"
+        app:backgroundTint="#30A1C6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/my_profile_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="244dp"
         android:fontFamily="@font/carter_one"
-        android:onClick="orderPageButton"
-        android:text="@string/back_order_Sent"
+        android:onClick="myProfileButton"
+        android:text="@string/my_profile_button"
         app:backgroundTint="#30A1C6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintTop_toBottomOf="@+id/order_start_manu_button"
+        app:layout_constraintVertical_bias="0.057" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
