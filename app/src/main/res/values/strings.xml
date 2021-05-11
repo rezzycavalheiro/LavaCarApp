@@ -42,4 +42,6 @@
     <string name="info_button_description">Info button</string>
     <string name="delete_profile_button">Excluir perfil</string>
     <string name="update_profile_button">Alterar dados</string>
+    <string name="pic_1">Foto 1</string>
+    <string name="picture_of_car">Picture of car</string>
 </resources>

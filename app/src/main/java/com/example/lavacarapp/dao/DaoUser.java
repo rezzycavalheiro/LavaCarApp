@@ -128,17 +128,6 @@ public class DaoUser {
 
 
     //DELETE - DELETAR DADOS DO BD
-//    public void deleteUserInDB(UserInfo user) {
-//        SQLiteDatabase db = conexaoSQLite.getWritableDatabase();
-//        try {
-//            db.delete(DB_TABLE, COL_ID + "id =?", new String[]{String.valueOf(user.getId())});
-//            db.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            db.close();
-//        }
-//    }
-
     public void deleteUserInDB(String email) {
         SQLiteDatabase db = conexaoSQLite.getWritableDatabase();
         try {

@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".view.OrderPage">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_car"
+        android:layout_width="333dp"
+        android:layout_height="276dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_pic_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_title2"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
         android:id="@+id/order_title2"
         android:layout_width="wrap_content"
@@ -23,17 +39,14 @@
         android:id="@+id/add_pic_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="192dp"
         android:fontFamily="@font/carter_one"
         android:onClick="openCameraButton"
         android:text="@string/adicionar_foto_button"
         app:backgroundTint="#30A1C6"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.638" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/order_title"
@@ -45,18 +58,6 @@
         android:textColor="#050505"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="343dp"
-        android:layout_height="246dp"
-        android:layout_marginTop="94dp"
-        android:text="FOTOS"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

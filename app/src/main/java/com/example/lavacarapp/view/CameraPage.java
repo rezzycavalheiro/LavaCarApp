@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.lavacarapp.R;
+import com.example.lavacarapp.model.CarModel;
+import com.example.lavacarapp.model.CarPictures;
 
 import java.io.File;
 import java.io.IOException;
@@ -144,9 +146,9 @@ public class CameraPage extends AppCompatActivity {
                 Cursor cursor = getContentResolver().query(selectedImage, path, null, null, null);
                 cursor.moveToFirst();
                 int columnIndex = cursor.getColumnIndex(path[0]);
-                String filePath = cursor.getString(columnIndex);
+                picturePath = cursor.getString(columnIndex);
 
-                imageViewCamera.setImageBitmap(BitmapFactory.decodeFile(filePath));
+                imageViewCamera.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                 cursor.close();
             }
         }
@@ -155,6 +157,7 @@ public class CameraPage extends AppCompatActivity {
     // VOLTA PARA A PÁGINA DE PEDIDOS
     public void orderPageButton(View view){
         Intent orderPage = new Intent(this, OrderPage.class);
+        CarModel.getInstance().carsArray.add(new CarPictures(picturePath));
         startActivity(orderPage);
     }
 

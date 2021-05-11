@@ -1,26 +1,41 @@
 package com.example.lavacarapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.lavacarapp.R;
+import com.example.lavacarapp.model.CarPictures;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderPage extends AppCompatActivity {
 
     private TextView cleanLevelText;
     private ProgressBar cleanLevelProgress;
     private SeekBar cleanLevelSeekBar;
+    List<CarPictures> carPaths;
+    RecyclerView recyclerView;
+    RecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
+
+        recyclerView = findViewById(R.id.recyclerview_car);
+        adapter = new RecyclerViewAdapter(this, carPaths);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setAdapter(adapter);
 
         cleanLevelText = findViewById(R.id.text_clean_level);
         cleanLevelProgress = findViewById(R.id.progressBar_clean_level);
